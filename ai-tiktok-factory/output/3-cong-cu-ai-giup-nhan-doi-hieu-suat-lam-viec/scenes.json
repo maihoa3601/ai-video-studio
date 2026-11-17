@@ -1,0 +1,146 @@
+[
+  {
+    "scene_id": 1,
+    "role": "HOOK",
+    "start": 0.0,
+    "end": 3.45,
+    "duration": 3.45,
+    "voice": "Bạn vẫn nghĩ 3 công cụ AI giúp nhân đôi hiệu suất làm việc là điều gì đó xa vời?",
+    "headline": "BẠN ĐÃ BIẾT CHƯA?",
+    "visual_keywords": [
+      "AI",
+      "technology",
+      "workflow",
+      "data"
+    ],
+    "visual_description": "Modern tech visual displaying: BẠN ĐÃ BIẾT CHƯA?",
+    "subtitle_text": "Bạn vẫn nghĩ 3 công cụ AI giúp nhân đôi hiệu suất làm việc là điều gì đó xa vời?",
+    "highlight_words": [
+      "AI",
+      "công cụ",
+      "3"
+    ]
+  },
+  {
+    "scene_id": 2,
+    "role": "PROBLEM",
+    "start": 3.45,
+    "end": 11.5,
+    "duration": 8.05,
+    "voice": "Thực tế, nó đang âm thầm thay đổi hoàn toàn cách chúng ta làm việc mỗi ngày.",
+    "headline": "THỰC TRẠNG HIỆN NAY",
+    "visual_keywords": [
+      "AI",
+      "technology",
+      "workflow",
+      "data"
+    ],
+    "visual_description": "Modern tech visual displaying: THỰC TRẠNG HIỆN NAY",
+    "subtitle_text": "Thực tế, nó đang âm thầm thay đổi hoàn toàn cách chúng ta làm việc mỗi ngày.",
+    "highlight_words": []
+  },
+  {
+    "scene_id": 3,
+    "role": "POINT_1",
+    "start": 11.5,
+    "end": 17.25,
+    "duration": 5.75,
+    "voice": "Đầu tiên, AI giúp tự động hóa những tác vụ lặp đi lặp lại chỉ trong vài giây.",
+    "headline": "ĐIỂM THEN CHỐT 1",
+    "visual_keywords": [
+      "AI",
+      "technology",
+      "workflow",
+      "data"
+    ],
+    "visual_description": "Modern tech visual displaying: ĐIỂM THEN CHỐT 1",
+    "subtitle_text": "Đầu tiên, AI giúp tự động hóa những tác vụ lặp đi lặp lại chỉ trong vài giây.",
+    "highlight_words": [
+      "AI",
+      "tự động"
+    ]
+  },
+  {
+    "scene_id": 4,
+    "role": "POINT_2",
+    "start": 17.25,
+    "end": 23.0,
+    "duration": 5.75,
+    "voice": "Thứ hai, nó đóng vai trò như một trợ lý thông minh, hỗ trợ bạn ra quyết định nhanh hơn gấp 5 lần.",
+    "headline": "ĐIỂM THEN CHỐT 2",
+    "visual_keywords": [
+      "AI",
+      "technology",
+      "workflow",
+      "data"
+    ],
+    "visual_description": "Modern tech visual displaying: ĐIỂM THEN CHỐT 2",
+    "subtitle_text": "Thứ hai, nó đóng vai trò như một trợ lý thông minh, hỗ trợ bạn ra quyết định nhanh hơn gấp 5 lần.",
+    "highlight_words": [
+      "5"
+    ]
+  },
+  {
+    "scene_id": 5,
+    "role": "POINT_3",
+    "start": 23.0,
+    "end": 28.75,
+    "duration": 5.75,
+    "voice": "Quan trọng nhất, người biết tận dụng AI sẽ tiết kiệm hàng giờ làm việc mỗi tuần.",
+    "headline": "ĐIỂM THEN CHỐT 3",
+    "visual_keywords": [
+      "AI",
+      "technology",
+      "workflow",
+      "data"
+    ],
+    "visual_description": "Modern tech visual displaying: ĐIỂM THEN CHỐT 3",
+    "subtitle_text": "Quan trọng nhất, người biết tận dụng AI sẽ tiết kiệm hàng giờ làm việc mỗi tuần.",
+    "highlight_words": [
+      "AI",
+      "tiết kiệm"
+    ]
+  },
+  {
+    "scene_id": 6,
+    "role": "RESULT",
+    "start": 28.75,
+    "end": 33.35,
+    "duration": 4.6,
+    "voice": "Hiểu về 3 công cụ AI giúp nhân đôi hiệu suất làm việc ngay hôm nay chính là nắm bắt lợi thế cạnh tranh lớn nhất của bạn.",
+    "headline": "GIÁ TRỊ ĐỘT PHÁ",
+    "visual_keywords": [
+      "AI",
+      "technology",
+      "workflow",
+      "data"
+    ],
+    "visual_description": "Modern tech visual displaying: GIÁ TRỊ ĐỘT PHÁ",
+    "subtitle_text": "Hiểu về 3 công cụ AI giúp nhân đôi hiệu suất làm việc ngay hôm nay chính là nắm bắt lợi thế cạnh tranh lớn nhất của bạn.",
+    "highlight_words": [
+      "AI",
+      "công cụ",
+      "3"
+    ]
+  },
+  {
+    "scene_id": 7,
+    "role": "CTA",
+    "start": 33.35,
+    "end": 37.94,
+    "duration": 4.59,
+    "voice": "Follow kênh AI Master để cập nhật kiến thức AI thực chiến mỗi ngày!",
+    "headline": "HÀNH ĐỘNG NGAY",
+    "visual_keywords": [
+      "AI",
+      "technology",
+      "workflow",
+      "data"
+    ],
+    "visual_description": "Modern tech visual displaying: HÀNH ĐỘNG NGAY",
+    "subtitle_text": "Follow kênh AI Master để cập nhật kiến thức AI thực chiến mỗi ngày!",
+    "highlight_words": [
+      "AI"
+    ]
+  }
+]

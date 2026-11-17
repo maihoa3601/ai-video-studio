@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.git
+.github
+temp_frames/
+temp/
+node_modules/
+.env.local
+web_app/outputs/video_*.mp4
+web_app/uploads/upload_*

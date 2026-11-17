@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Video Studio — Ghép Video / Ảnh & Voice AI Tự Động</title>
+  
+  <!-- Finexo Mandatory Fonts Loader -->
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=Inter+Tight:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    WebFont.load({
+      google: {
+        families: [
+          "Plus Jakarta Sans:300,400,500,600,700",
+          "Inter:300,400,500,600",
+          "Inter Tight:300,400,500,600,700"
+        ]
+      }
+    });
+  </script>
+
+  <link rel="stylesheet" href="/static/css/finexo.css" />
+</head>
+<body>
+
+  <div class="app-container">
+    <!-- Header -->
+    <header class="header-wrapper">
+      <div class="brand-wrapper">
+        <span class="brand-badge">AI STUDIO</span>
+        <div class="brand-title">Video <span>Factory</span></div>
+      </div>
+      <button class="api-status-tag" id="btnOpenApiModal">
+        <span class="status-dot" id="apiDot"></span>
+        <span id="apiStatusText">AI: Tích hợp sẵn (Sẵn sàng)</span>
+        <span style="font-size: 11px; color: var(--slate-gray); margin-left: 4px;">⚙ Cấu hình</span>
+      </button>
+    </header>
+
+    <!-- Hero Title -->
+    <div class="section-top-subtitle">Nền tảng sáng tạo video tự động</div>
+    <h1 class="hero-heading">
+      Ghép Video & Hình Ảnh <span class="design-text">với Giọng Đọc AI Đỉnh Cao.</span>
+    </h1>
+    <p class="hero-description">
+      Tự động tạo video TikTok, Reels và Shorts với giọng đọc AI hài hước lôi cuốn, đồng bộ thời lượng chuẩn xác và hòa âm nhạc nền mượt mà chỉ sau 1 click.
+    </p>
+
+    <!-- Main Grid -->
+    <div class="studio-grid">
+      <!-- Left Column: Controls -->
+      <div class="studio-left">
+        <!-- Step 1: Media Input -->
+        <div class="bento-card">
+          <div class="card-header">
+            <h3 class="card-title">
+              <span class="step-number">1</span>
+              Nguồn Video hoặc Hình Ảnh
+            </h3>
+          </div>
+
+          <div class="pill-tab-group">
+            <button class="pill-tab active" data-type="video" id="tabVideo">Tải Lên Video</button>
+            <button class="pill-tab" data-type="sample" id="tabSample">Video Mẫu (Tóc Thật)</button>
+            <button class="pill-tab" data-type="images" id="tabImages">Chuỗi Hình Ảnh (Slideshow)</button>
+          </div>
+
+          <!-- Video Upload Tab -->
+          <div id="videoUploadSection">
+            <div class="dropzone" id="videoDropzone">
+              <div class="dropzone-title">Kéo thả file video vào đây hoặc bấm để chọn</div>
+              <div class="dropzone-desc">Hỗ trợ MP4, MOV, WebM (Tự động loop khớp độ dài giọng nói)</div>
+              <input type="file" id="videoFileInput" accept="video/mp4,video/quicktime,video/webm" style="display: none;" />
+            </div>
+            <div class="file-preview-list" id="videoFileList"></div>
+          </div>
+
+          <!-- Sample Video Tab -->
+          <div id="sampleVideoSection" style="display: none;">
+            <div style="background-color: #f0f4fe; border: 1px solid #d4e0fc; border-radius: 10px; padding: 14px 16px;">
+              <div style="font-weight: 600; color: var(--midnight-blue); font-size: 14px; margin-bottom: 4px;">
+                Đang kích hoạt Video Mẫu: Tóc móc tay từ tóc thật 100%
+              </div>
+              <div style="font-size: 13px; color: var(--slate-gray);">
+                Video gốc 12.2s hiển thị 3 mẫu tóc xoăn, tóc highlight và tóc dài mượt. Khi ghép, hệ thống sẽ tự động loop 2 vòng vừa khớp với lời thoại!
+              </div>
+            </div>
+          </div>
+
+          <!-- Image Upload Tab -->
+          <div id="imagesUploadSection" style="display: none;">
+            <div class="dropzone" id="imagesDropzone">
+              <div class="dropzone-title">Kéo thả nhiều hình ảnh vào đây hoặc bấm để chọn</div>
+              <div class="dropzone-desc">Hỗ trợ JPG, PNG (Tự động chia đều thời lượng từng ảnh theo giọng đọc)</div>
+              <input type="file" id="imagesFileInput" accept="image/jpeg,image/png,image/webp" multiple style="display: none;" />
+            </div>
+            <div class="file-preview-list" id="imagesFileList"></div>
+          </div>
+
+          <div class="form-group" style="margin-top: 16px; margin-bottom: 0;">
+            <label class="form-label">Tỷ lệ khung hình xuất ra:</label>
+            <select class="form-select" id="aspectRatioSelect">
+              <option value="keep" selected>Giữ nguyên tỷ lệ gốc của video</option>
+              <option value="9:16">Chuẩn dọc 9:16 (1080x1920 — TikTok, Reels, Shorts)</option>
+              <option value="16:9">Chuẩn ngang 16:9 (1920x1080 — YouTube, Facebook)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Step 2: Script & AI Assistant -->
+        <div class="bento-card">
+          <div class="card-header">
+            <h3 class="card-title">
+              <span class="step-number">2</span>
+              Kịch Bản & Trợ Lý Viết AI
+            </h3>
+          </div>
+
+          <!-- AI Script Assistant Bar -->
+          <div class="ai-bar">
+            <div class="ai-bar-title">
+              <span style="font-weight: 600; font-size: 13px; color: var(--midnight-blue);">Gợi ý & Viết Lời Thoại AI:</span>
+              <span class="ai-badge" id="currentAiBadge">AI Trợ Lý</span>
+            </div>
+            <div style="display: flex; gap: 8px; margin-bottom: 10px;">
+              <input type="text" class="form-input" id="topicInput" placeholder="Nhập chủ đề/tên sản phẩm (ví dụ: Tóc móc tay từ tóc thật, Váy dạ hội...)" />
+              <button class="btn btn-ai" id="btnAiGenerate" style="white-space: nowrap;">✨ Viết Bằng AI</button>
+            </div>
+            <div class="ai-actions-row">
+              <button class="btn btn-ai-ghost" id="btnFillSampleScript">Dán Kịch Bản Tóc Mẫu</button>
+              <button class="btn btn-ai-ghost" id="btnAiPolish">🎭 Tút Lại Hài Hước Hơn</button>
+            </div>
+          </div>
+
+          <div class="form-group" style="margin-bottom: 0;">
+            <label class="form-label">Nội dung lời đọc lồng tiếng (Voice-over):</label>
+            <textarea class="form-textarea" id="scriptText" placeholder="Nhập lời thoại cần lồng tiếng vào đây, hoặc dùng Trợ lý AI ở trên để sinh tự động..."></textarea>
+          </div>
+        </div>
+
+        <!-- Step 3: Voice & Audio Settings -->
+        <div class="bento-card">
+          <div class="card-header">
+            <h3 class="card-title">
+              <span class="step-number">3</span>
+              Giọng Đọc AI & Nhạc Nền
+            </h3>
+          </div>
+
+          <div class="controls-row">
+            <div class="form-group">
+              <label class="form-label">Chọn nhân vật / giọng đọc:</label>
+              <select class="form-select" id="voiceTypeSelect">
+                <option value="nam_hai_huoc" selected>Nam Minh — Lém lỉnh, hài hước (Khuyên dùng)</option>
+                <option value="nu_hai_huoc">Nữ — Trẻ trung, vui nhộn</option>
+                <option value="chipmunk">Hoạt hình / Chipmunk (Meme siêu vui)</option>
+                <option value="energetic_sales">Nam Minh — Bán hàng sôi nổi, chốt đơn</option>
+                <option value="natural">Nam Minh — Tự nhiên, truyền cảm</option>
+                <option value="gtts_nu">Giọng Nữ chuẩn (Google Translate)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Tốc độ nói: <span id="speedDisplay" style="color: var(--bright-royal-blue); font-weight: 600;">1.0x</span></label>
+              <input type="range" class="form-input" id="speedSlider" min="0.8" max="1.4" step="0.05" value="1.0" style="padding: 6px 0;" />
+            </div>
+          </div>
+
+          <!-- Preview Voice Button -->
+          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+            <button class="btn btn-secondary" id="btnPreviewVoice" style="font-size: 13px;">
+              🔊 Nghe thử giọng đọc trước
+            </button>
+            <audio id="previewAudioPlayer" controls style="display: none; height: 36px; flex: 1;"></audio>
+          </div>
+
+          <!-- Background Music Section -->
+          <div style="background-color: var(--soft-white); padding: 14px 16px; border-radius: var(--radius-sm); border: 1px solid var(--silver-gray);">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;">
+              <label style="display: flex; align-items: center; gap: 8px; font-weight: 600; color: var(--midnight-blue); font-size: 14px; cursor: pointer;">
+                <input type="checkbox" id="chkWithBgm" checked style="width: 16px; height: 16px; accent-color: var(--bright-royal-blue);" />
+                Hòa âm nhạc nền (BGM)
+              </label>
+              <span style="font-size: 12px; color: var(--slate-gray);">Tự động giảm âm khi có tiếng nói (Ducking)</span>
+            </div>
+
+            <div class="controls-row" id="bgmControlsRow">
+              <div class="form-group" style="margin-bottom: 0;">
+                <label class="form-label" style="font-size: 13px;">Giai điệu nhạc:</label>
+                <select class="form-select" id="bgmTrackSelect" style="font-size: 13px; padding: 8px 10px;">
+                  <option value="cheerful_tiktok.mp3" selected>TikTok Vui Nhộn & Hài Hước (Cheerful)</option>
+                </select>
+              </div>
+
+              <div class="form-group" style="margin-bottom: 0;">
+                <label class="form-label" style="font-size: 13px;">Âm lượng nhạc nền: <span id="bgmVolumeDisplay" style="color: var(--bright-royal-blue); font-weight: 600;">12%</span></label>
+                <input type="range" class="form-input" id="bgmVolumeSlider" min="0.05" max="0.30" step="0.01" value="0.12" style="padding: 6px 0;" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Render Main Action -->
+        <button class="btn btn-primary btn-full" id="btnRenderVideo">
+          ⚡ TẠO VIDEO HOÀN CHỈNH NGAY
+        </button>
+      </div>
+
+      <!-- Right Column: Live Player & Progress -->
+      <div class="studio-right">
+        <!-- Live Video Player Card -->
+        <div class="bento-card">
+          <div class="card-header">
+            <h3 class="card-title">Kết Quả Video</h3>
+            <span class="file-tag" id="videoTimeTag" style="display: none;">00:00</span>
+          </div>
+
+          <!-- Video Player -->
+          <div class="player-container" id="playerWrapper">
+            <div class="player-placeholder" id="playerPlaceholder">
+              <div class="placeholder-icon">🎬</div>
+              <div style="font-weight: 600; font-size: 15px; margin-bottom: 4px;">Chưa có video được render</div>
+              <div style="font-size: 13px;">Bấm "Tạo Video Hoàn Chỉnh Ngay" để bắt đầu xử lý</div>
+            </div>
+            <video id="finalVideoPlayer" controls playsinline style="display: none;"></video>
+          </div>
+
+          <!-- Progress Bar & Status Log -->
+          <div class="progress-box" id="progressBox">
+            <div class="progress-header">
+              <span id="progressStatusText">Đang bắt đầu xử lý...</span>
+              <span id="progressPercent">0%</span>
+            </div>
+            <div class="progress-bar-bg">
+              <div class="progress-bar-fill" id="progressBarFill"></div>
+            </div>
+          </div>
+
+          <!-- Download Action -->
+          <div id="downloadActionRow" style="display: none; margin-top: 14px;">
+            <a href="#" class="btn btn-primary" id="btnDownloadVideo" download style="width: 100%; font-size: 15px;">
+              📥 Tải Video Về Máy (.MP4)
+            </a>
+          </div>
+        </div>
+
+        <!-- History Card -->
+        <div class="bento-card">
+          <div class="card-header">
+            <h3 class="card-title" style="font-size: 16px;">
+              Lịch Sử Video Đã Tạo
+            </h3>
+            <button class="btn btn-secondary" id="btnRefreshHistory" style="font-size: 12px; padding: 4px 10px;">Làm mới</button>
+          </div>
+
+          <div class="history-list" id="historyList">
+            <div style="text-align: center; color: var(--slate-gray); font-size: 13px; padding: 12px;">Đang tải danh sách...</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal API Config -->
+  <div class="modal-overlay" id="apiModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 class="card-title">Cấu hình API Trợ Lý AI</h3>
+        <button class="modal-close" id="btnCloseApiModal">✕</button>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Chọn nhà cung cấp AI:</label>
+        <select class="form-select" id="modalApiProvider">
+          <option value="offline" selected>Tích hợp sẵn (Không cần API Key — Miễn phí 100%)</option>
+          <option value="gemini">Google Gemini API (Khuyên dùng — Thông minh, tốc độ cao)</option>
+          <option value="openai">OpenAI API (GPT-4o mini)</option>
+        </select>
+      </div>
+
+      <div class="form-group" id="modalKeyGroup" style="display: none;">
+        <label class="form-label">API Key của bạn:</label>
+        <input type="password" class="form-input" id="modalApiKeyInput" placeholder="Dán Gemini hoặc OpenAI API Key vào đây..." />
+        <div style="font-size: 12px; color: var(--slate-gray); margin-top: 6px;">
+          Key được lưu an toàn trực tiếp trên trình duyệt của bạn (LocalStorage).
+        </div>
+      </div>
+
+      <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 24px;">
+        <button class="btn btn-secondary" id="btnCancelModal">Đóng</button>
+        <button class="btn btn-primary" id="btnSaveApiConfig">Lưu Cấu Hình</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/static/js/app.js"></script>
+</body>
+</html>

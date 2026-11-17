@@ -1,0 +1,44 @@
+[Script Info]
+Title: AI TikTok Subtitles
+ScriptType: v4.00+
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+YCbCr Matrix: None
+PlayResX: 1080
+PlayResY: 1920
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: TikTokDefault,Segoe UI,54,&H00FFFFFF,&H000000FF,&H00000000,&HA0000000,-1,0,0,0,100,100,1,0,1,6,3,2,60,60,420,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.00,0:00:01.09,TikTokDefault,,0,0,0,,{\c&H0000E6FF&}AI{\c&H00FFFFFF&} không còn là
+Dialogue: 0,0:00:01.09,0:00:02.61,TikTokDefault,,0,0,0,,chuyện của tương lai.
+Dialogue: 0,0:00:02.61,0:00:03.37,TikTokDefault,,0,0,0,,Có thể hôm nay
+Dialogue: 0,0:00:03.37,0:00:04.12,TikTokDefault,,0,0,0,,bạn đã dùng {\c&H0000E6FF&}AI{\c&H00FFFFFF&}
+Dialogue: 0,0:00:04.12,0:00:05.09,TikTokDefault,,0,0,0,,nhiều lần mà không
+Dialogue: 0,0:00:05.09,0:00:05.52,TikTokDefault,,0,0,0,,nhận ra.
+Dialogue: 0,0:00:05.52,0:00:06.45,TikTokDefault,,0,0,0,,Hiểu đơn giản,
+Dialogue: 0,0:00:06.45,0:00:07.45,TikTokDefault,,0,0,0,,{\c&H0000E6FF&}AI{\c&H00FFFFFF&} là công nghệ
+Dialogue: 0,0:00:07.45,0:00:08.57,TikTokDefault,,0,0,0,,giúp máy tính học
+Dialogue: 0,0:00:08.57,0:00:09.24,TikTokDefault,,0,0,0,,từ dữ liệu
+Dialogue: 0,0:00:09.24,0:00:10.48,TikTokDefault,,0,0,0,,để nhận biết,
+Dialogue: 0,0:00:10.48,0:00:12.01,TikTokDefault,,0,0,0,,dự đoán hoặc tạo
+Dialogue: 0,0:00:12.01,0:00:13.05,TikTokDefault,,0,0,0,,ra kết quả.
+Dialogue: 0,0:00:13.05,0:00:13.93,TikTokDefault,,0,0,0,,{\c&H0000E6FF&}AI{\c&H00FFFFFF&} có thể xử
+Dialogue: 0,0:00:13.93,0:00:15.10,TikTokDefault,,0,0,0,,lý công việc lặp
+Dialogue: 0,0:00:15.10,0:00:15.39,TikTokDefault,,0,0,0,,lại,
+Dialogue: 0,0:00:15.39,0:00:16.77,TikTokDefault,,0,0,0,,tổng hợp thông tin,
+Dialogue: 0,0:00:16.77,0:00:18.19,TikTokDefault,,0,0,0,,tạo nội dung,
+Dialogue: 0,0:00:18.19,0:00:20.59,TikTokDefault,,0,0,0,,hình ảnh và giọng nói.
+Dialogue: 0,0:00:20.59,0:00:22.12,TikTokDefault,,0,0,0,,Điều quan trọng không
+Dialogue: 0,0:00:22.12,0:00:23.58,TikTokDefault,,0,0,0,,phải dùng thật nhiều
+Dialogue: 0,0:00:23.58,0:00:23.80,TikTokDefault,,0,0,0,,{\c&H0000E6FF&}AI{\c&H00FFFFFF&},
+Dialogue: 0,0:00:23.80,0:00:25.01,TikTokDefault,,0,0,0,,mà là biết chọn
+Dialogue: 0,0:00:25.01,0:00:26.31,TikTokDefault,,0,0,0,,đúng {\c&H0000E6FF&}CÔNG CỤ{\c&H00FFFFFF&} cho
+Dialogue: 0,0:00:26.31,0:00:27.11,TikTokDefault,,0,0,0,,công việc.
+Dialogue: 0,0:00:27.11,0:00:28.34,TikTokDefault,,0,0,0,,Muốn mình test những
+Dialogue: 0,0:00:28.34,0:00:29.63,TikTokDefault,,0,0,0,,{\c&H0000E6FF&}CÔNG CỤ{\c&H00FFFFFF&} {\c&H0000E6FF&}AI{\c&H00FFFFFF&} đáng dùng?
+Dialogue: 0,0:00:29.63,0:00:31.43,TikTokDefault,,0,0,0,,Follow kênh {\c&H0000E6FF&}AI{\c&H00FFFFFF&} Master
+Dialogue: 0,0:00:31.43,0:00:32.64,TikTokDefault,,0,0,0,,và comment {\c&H0000E6FF&}AI{\c&H00FFFFFF&}.

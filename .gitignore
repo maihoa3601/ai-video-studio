@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.env
+venv/
+env/
+ENV/
+
+# Temporary and build files
+cloudflared.exe
+temp_frames/
+temp/
+web_app/outputs/video_*.mp4
+web_app/outputs/preview_*.mp3
+web_app/uploads/upload_*
+web_app/uploads/img_*
+test*.mp3
+part*.mp3
+scene_*.png
+
+# OS
+.DS_Store
+Thumbs.db
