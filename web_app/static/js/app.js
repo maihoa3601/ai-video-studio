@@ -41,6 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const bgmVolumeDisplay = document.getElementById("bgmVolumeDisplay");
 
   const btnRenderVideo = document.getElementById("btnRenderVideo");
+  const btnRenderVideoMobile = document.getElementById("btnRenderVideoMobile");
   const playerPlaceholder = document.getElementById("playerPlaceholder");
   const finalVideoPlayer = document.getElementById("finalVideoPlayer");
   const progressBox = document.getElementById("progressBox");
@@ -301,8 +302,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // 7. Render Final Video
-  btnRenderVideo.addEventListener("click", async () => {
+  // 7. Render Final Video (Shared Handler for Desktop and Mobile)
+  async function triggerVideoRender() {
     const script = scriptText.value.trim();
     if (!script) {
       alert("Vui lòng nhập lời đọc lồng tiếng (Voice-over) trước khi tạo video!");
@@ -346,10 +347,19 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // UI Progress State
-    btnRenderVideo.disabled = true;
-    btnRenderVideo.textContent = "⏳ ĐANG XỬ LÝ & RENDER VIDEO...";
+    if (btnRenderVideo) {
+      btnRenderVideo.disabled = true;
+      btnRenderVideo.textContent = "⏳ ĐANG XỬ LÝ & RENDER VIDEO...";
+    }
+    if (btnRenderVideoMobile) {
+      btnRenderVideoMobile.disabled = true;
+      btnRenderVideoMobile.textContent = "⏳ ĐANG XỬ LÝ & RENDER...";
+    }
     progressBox.style.display = "block";
     updateProgress(15, "Đang tổng hợp giọng nói AI...");
+
+    // Smooth scroll to progress on mobile
+    progressBox.scrollIntoView({ behavior: "smooth", block: "center" });
 
     // Simulated progress ticker
     const timer = setInterval(() => {
@@ -389,6 +399,9 @@ document.addEventListener("DOMContentLoaded", () => {
         videoTimeTag.textContent = `${data.duration}s (${data.size_mb} MB)`;
         videoTimeTag.style.display = "inline-block";
 
+        // Scroll directly to player on mobile
+        document.getElementById("cardResult").scrollIntoView({ behavior: "smooth", block: "start" });
+
         loadHistory();
       } else {
         alert("Lỗi khi render video: " + (data.detail || "Không rõ nguyên nhân"));
@@ -397,12 +410,35 @@ document.addEventListener("DOMContentLoaded", () => {
       clearInterval(timer);
       alert("Lỗi kết nối tới server: " + e.message);
     } finally {
-      btnRenderVideo.disabled = false;
-      btnRenderVideo.textContent = "⚡ TẠO VIDEO HOÀN CHỈNH NGAY";
+      if (btnRenderVideo) {
+        btnRenderVideo.disabled = false;
+        btnRenderVideo.textContent = "⚡ TẠO VIDEO HOÀN CHỈNH NGAY";
+      }
+      if (btnRenderVideoMobile) {
+        btnRenderVideoMobile.disabled = false;
+        btnRenderVideoMobile.textContent = "⚡ TẠO VIDEO HOÀN CHỈNH NGAY";
+      }
       setTimeout(() => {
         progressBox.style.display = "none";
       }, 3500);
     }
+  }
+
+  if (btnRenderVideo) btnRenderVideo.addEventListener("click", triggerVideoRender);
+  if (btnRenderVideoMobile) btnRenderVideoMobile.addEventListener("click", triggerVideoRender);
+
+  // Stepper Chips smooth scroll & active state
+  document.querySelectorAll(".step-chip").forEach(chip => {
+    chip.addEventListener("click", (e) => {
+      e.preventDefault();
+      document.querySelectorAll(".step-chip").forEach(c => c.classList.remove("active"));
+      chip.classList.add("active");
+      const targetId = chip.getAttribute("href");
+      const targetEl = document.querySelector(targetId);
+      if (targetEl) {
+        targetEl.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    });
   });
 
   function updateProgress(pct, statusText) {
